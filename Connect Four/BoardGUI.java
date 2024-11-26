@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Board extends JPanel{
+public class BoardGUI extends JFrame{
     
 }
