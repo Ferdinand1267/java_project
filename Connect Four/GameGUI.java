@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class BoardGUI extends JFrame{
+public class GameGUI extends JFrame{
     
 }
