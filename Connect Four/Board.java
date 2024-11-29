@@ -36,6 +36,19 @@ public class Board{
         return board;
     }
 
-    
+    public boolean drop(int column){
+        int maxRow = -1;
+        if(column<0||column>=col){
+            return false;
+        }
+        for (int i = row-1; row>=0;i--){
+            if(board[i][column] == ' '){
+                if (i >= maxRow){
+                    maxRow = turn;
+                }   
+            }
+        }
+        return true;
+    }
     
 }
