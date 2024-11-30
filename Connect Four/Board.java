@@ -30,6 +30,14 @@ public class Board{
             turn = 'r';
          }
     }
+
+    public int getRow(){
+        return row;
+    }
+
+    public int getCol(){
+        return col;
+    }
     
     //getter method to get board
     public char[][] getBoard() {

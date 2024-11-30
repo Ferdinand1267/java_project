@@ -3,7 +3,7 @@ import java.util.Stack;
 
 public class Logic{
     private Board board;
-    private Stack<Point> moves;
+    // "private Stack<Point> moves;" might not be needed
 	private String error;
 	private boolean gameOver;
 	private boolean redWins;
@@ -11,7 +11,7 @@ public class Logic{
     
     public Logic(Board board){
         this.board = board;
-        moves = new Stack<>();
+        // "moves = new Stack<>();" might not be needed
         gameOver = false;
         redWins = false;
         yellowWins = false;
@@ -37,7 +37,7 @@ public class Logic{
         }
         else{
             for (int i = 0;i<gameBoard.length;i++){
-                if(gameBoard[0][gameBoard[0].length-1]==' '){
+                if(gameBoard[i][gameBoard[0].length-1]==' '){
                     break;
                 }
                 else if(i == gameBoard.length - 1){
@@ -46,5 +46,24 @@ public class Logic{
                 }
             }
         }
+    }
+
+    public boolean checkRows(char[][] gameBoard, char turn){
+        int count = 0;
+        for (int i = 0; i < board.getRow();i++){
+            for (int j = 0;j < board.getCol();j++){
+                if(gameBoard[i][j] == ' ' || gameBoard[i][j]!= turn){
+                    count = 0;
+                }
+                else { 
+                    count += 1;
+                    if(count==4){
+                        return true;
+                    }
+                }
+                
+            }
+        }
+        return false;   
     }
 }
