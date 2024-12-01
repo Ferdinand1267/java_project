@@ -1,6 +1,3 @@
-import java.awt.Point;
-import java.util.Stack;
-
 public class Logic{
     private Board board;
     // "private Stack<Point> moves;" might not be needed
