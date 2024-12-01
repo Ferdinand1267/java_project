@@ -46,6 +46,7 @@ public class Logic{
                 }
             }
         }
+        return false;
     }
 
     public boolean checkRows(char[][] gameBoard, char turn){
