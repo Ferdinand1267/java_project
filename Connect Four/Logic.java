@@ -66,4 +66,41 @@ public class Logic{
         }
         return false;   
     }
+
+    public boolean checkColumns(char[][] gameBoard, char turn){
+        int count = 0;
+        for (int i = 0; i < board.getCol();i++){
+            for (int j = 0;j < board.getRow();j++){
+                if(gameBoard[i][j] == ' ' || gameBoard[i][j]!= turn){
+                    count = 0;
+                }
+                else { 
+                    count += 1;
+                    if(count==4){
+                        return true;
+                    }
+                }
+                
+            }
+        }
+        return false;   
+    }
+
+    public boolean checkDiagonal(char[][] gameBoard, char turn){
+        for (int i = 0; i < 3;i++){
+            for (int j = 0; j < 4;j++){
+                if (gameBoard[i][j] == turn && gameBoard[i+1][j+1] == turn && gameBoard[i+2][j+2] == turn &&gameBoard[i+3][j+3] == turn){
+                    return true;
+                }
+            }
+        }
+        for (int i = board.getRow();i>board.getRow()-3;i--){
+            for (int j = 0; j<4;j++){
+                if (gameBoard[i][j] == turn && gameBoard[i-1][j+1] == turn && gameBoard[i-2][j+2] == turn &&gameBoard[i-3][j+3] == turn){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }
