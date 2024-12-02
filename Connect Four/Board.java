@@ -1,7 +1,7 @@
 public class Board{
+    private char[][] board;
     private int row = 6;
     private int col = 7;
-    private char[][] board;
     private char turn = 'r';
     
     // Constructor which initializes the board with empty values.
@@ -24,11 +24,7 @@ public class Board{
     }
 
     public void switchPlayer() {
-        if(turn == 'r') {
-            turn = 'y';
-         } else {
-            turn = 'r';
-         }
+        turn = (turn == 'r') ? 'y' : 'r';
     }
 
     public int getRow(){
@@ -45,18 +41,17 @@ public class Board{
     }
 
     public boolean drop(int column){
-        int maxRow = -1;
         if(column<0||column>=col){
             return false;
         }
-        for (int i = row-1; row>=0;i--){
-            if(board[i][column] == ' '){
-                if (i >= maxRow){
-                    maxRow = turn;
-                }   
+        for (int i = row - 1; i >= 0; i--) { 
+            if (board[i][column] == ' ') { 
+                board[i][column] = turn; 
+                return true; 
             }
         }
-        return true;
+    
+        return false; 
     }
     
 }
