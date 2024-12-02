@@ -24,7 +24,11 @@ public class Board{
     }
     //switch player method
     public void switchPlayer() {
-        turn = (turn == 'r') ? 'y' : 'r';
+        if (turn == 'r') {
+        turn = 'y'; 
+        } else {
+        turn = 'r'; 
+        }
     }
     //getter methods for row and col
     public int getRow(){
