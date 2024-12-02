@@ -20,7 +20,7 @@ public class Logic{
         yellowWins = false;
         char[][] gameBoard = board.getBoard();
         char turn = board.getTurn();
-        if (checkRows(gameBoard,turn) || checkColumns(gameBoard,turn) || checkDiagonal(gameBoard,turn)){
+        if (checkRows(gameBoard,turn) == true|| checkColumns(gameBoard,turn) == true || checkDiagonal(gameBoard,turn) == true){
             if(turn == 'r'){
                 redWins = true;
                 gameOver = true;
@@ -69,7 +69,7 @@ public class Logic{
         int count = 0;
         for (int i = 0; i < board.getCol();i++){
             for (int j = 0;j < board.getRow();j++){
-                if(gameBoard[i][j] == ' ' || gameBoard[i][j]!= turn){
+                if(gameBoard[j][i] == ' ' || gameBoard[j][i]!= turn){
                     count = 0;
                 }
                 else { 
@@ -92,11 +92,18 @@ public class Logic{
                 }
             }
         }
-        for (int i = board.getRow();i>board.getRow()-3;i--){
-            for (int j = 0; j<4;j++){
-                if (gameBoard[i][j] == turn && gameBoard[i-1][j+1] == turn && gameBoard[i-2][j+2] == turn &&gameBoard[i-3][j+3] == turn){
+        //for (int i = board.getRow();i>board.getRow()-3;i--){
+          //  for (int j = 0; j<4;j++){
+            //    if (gameBoard[i][j] == turn && gameBoard[i-1][j+1] == turn && gameBoard[i-2][j+2] == turn &&gameBoard[i-3][j+3] == turn){
+              //      return true;
+                //}
+           // }
+        //}
+        for (int i = board.getRow()-1; i >= board.getRow()-3;i--){
+            for (int j = board.getCol()-1;j>=board.getCol()-4;j--){
+                if(gameBoard[i][j] == turn && gameBoard[i-1][j-1] == turn && gameBoard[i-2][j-2] == turn &&gameBoard[i-3][j-3] == turn){
                     return true;
-                }
+                }   
             }
         }
         return false;
