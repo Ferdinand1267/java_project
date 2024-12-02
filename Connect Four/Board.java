@@ -22,11 +22,11 @@ public class Board{
     public void setTurn(char x) {
         turn = x;
     }
-
+    //switch player method
     public void switchPlayer() {
         turn = (turn == 'r') ? 'y' : 'r';
     }
-
+    //getter methods for row and col
     public int getRow(){
         return row;
     }
@@ -39,13 +39,13 @@ public class Board{
     public char[][] getBoard() {
         return board;
     }
-
+    // this method allows users to drop their token
     public boolean drop(int column){
-        if(column<0||column>=col){
+        if(column<0||column>=col){ 
             return false;
         }
         for (int i = row - 1; i >= 0; i--) { 
-            if (board[i][column] == ' ') { 
+            if (board[i][column] == ' ') { //if the slot is empty, it replaces the empty spot and returns true
                 board[i][column] = turn; 
                 return true; 
             }
